@@ -26,7 +26,21 @@ namespace ShoppingCartEngineTests
 
         [Theory]
         [InlineData(ProductTypes.BOOK, "Commission Payment to the Agent.")]
-        public void ShouldPayCommissionToAgent(ProductTypes type, string expectedResult)
+        public void ShouldPayCommissionToAgentForBookPurchased(ProductTypes type, string expectedResult)
+        {
+            // Setup
+            var sut = new PaymentController();
+
+            // Exercise
+            var result = sut.HandlePayment(type);
+
+            // Verify
+            result.ActionMessages.Should().ContainEquivalentOf(expectedResult);
+        }
+
+        [Theory]
+        [InlineData(ProductTypes.BOOK, "Created a duplicate slip for the royalty department.")]
+        public void ShouldCreateADuplicateSlipForRoyaltyDepartmentForBookPurchased(ProductTypes type, string expectedResult)
         {
             // Setup
             var sut = new PaymentController();
