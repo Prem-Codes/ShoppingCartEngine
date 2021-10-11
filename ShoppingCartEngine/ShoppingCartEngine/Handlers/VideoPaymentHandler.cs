@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using System.Collections.Generic;
 using ShoppingCartEngine.Models;
 
 namespace ShoppingCartEngine.Handlers
@@ -13,7 +11,7 @@ namespace ShoppingCartEngine.Handlers
             ProductType = ProductTypes.VIDEO;
             ActionMessages = new List<string>();
             base.GetPackagingSlip();
-            base.AddFreeVideo(videoName);
+            AddFreeVideo(videoName);
         }
     }
 }

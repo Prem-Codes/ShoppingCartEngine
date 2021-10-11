@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using ShoppingCartEngine.Handlers;
+﻿using ShoppingCartEngine.Handlers;
 using ShoppingCartEngine.Models;
 
 namespace ShoppingCartEngine.Controller
@@ -34,7 +31,6 @@ namespace ShoppingCartEngine.Controller
                     product = new VideoPaymentHandler(itemName);
                     break;
                 }
-                case ProductTypes.OTHER:
                 default:
                 {
                     product = new OtherPaymentHandler();

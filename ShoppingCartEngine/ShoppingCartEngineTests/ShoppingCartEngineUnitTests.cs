@@ -1,6 +1,4 @@
-using System;
 using FluentAssertions;
-using Microsoft.VisualStudio.TestPlatform.TestHost;
 using ShoppingCartEngine.Controller;
 using ShoppingCartEngine.Models;
 using Xunit;

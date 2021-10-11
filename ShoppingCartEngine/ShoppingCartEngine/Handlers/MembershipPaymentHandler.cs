@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using System.Collections.Generic;
 using ShoppingCartEngine.Models;
 
 namespace ShoppingCartEngine.Handlers
@@ -10,10 +8,10 @@ namespace ShoppingCartEngine.Handlers
         public MembershipPaymentHandler()
         {
             ProductType = ProductTypes.MEMBERSHIP;
-            base.ActionMessages = new List<string>();
+            ActionMessages = new List<string>();
             base.GetPackagingSlip();
-            base.ActivateMembership();
-            base.DropMailToUser();
+            ActivateMembership();
+            DropMailToUser();
         }
     }
 }

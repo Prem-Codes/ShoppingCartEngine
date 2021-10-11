@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using System.Collections.Generic;
 using ShoppingCartEngine.Models;
 
 namespace ShoppingCartEngine.Handlers
@@ -12,8 +10,8 @@ namespace ShoppingCartEngine.Handlers
             ProductType = ProductTypes.UPGRADE;
             ActionMessages = new List<string>();
             base.GetPackagingSlip();
-            base.ApplyUpgrade();
-            base.DropMailToUser();
+            ApplyUpgrade();
+            DropMailToUser();
         }
     }
 }

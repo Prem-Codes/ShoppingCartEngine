@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using System.Collections.Generic;
 using ShoppingCartEngine.Models;
 
 namespace ShoppingCartEngine.Handlers
@@ -12,7 +10,7 @@ namespace ShoppingCartEngine.Handlers
             ProductType = ProductTypes.OTHER;
             ActionMessages = new List<string>();
             base.GetPackagingSlip();
-            base.SentCommissionToAgent();
+            SentCommissionToAgent();
         }
     }
 }
