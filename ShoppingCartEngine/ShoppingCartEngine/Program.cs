@@ -7,6 +7,6 @@ namespace ShoppingCartEngine
         static void Main(string[] args)
         {
             Console.WriteLine("Hello World!");
-        }
+            PhysicalProduct product = new PhysicalProduct("Generated packing slip");
     }
 }
