@@ -62,6 +62,18 @@ namespace ShoppingCartEngine.Controller
                 Console.WriteLine("Membership Activated.");
             }
 
+            if (type == ProductTypes.UPGRADE)
+            {
+                product.ActionMessages.Add("Upgrade to the membership applied.");
+                Console.WriteLine("Upgrade to the membership applied.");
+            }
+
+            if (type == ProductTypes.MEMBERSHIP || type == ProductTypes.UPGRADE)
+            {
+                product.ActionMessages.Add($"email regarding the {type.ToString().ToLower()} sent to user.");
+                Console.WriteLine($"email regarding the {type.ToString().ToLower()} sent to user.");
+            }
+
             product.ProductType = type;
             return product;
         }
