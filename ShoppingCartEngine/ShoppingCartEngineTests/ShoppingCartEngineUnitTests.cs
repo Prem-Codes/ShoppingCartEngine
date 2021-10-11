@@ -1,15 +1,27 @@
 using System;
+using FluentAssertions;
 using Microsoft.VisualStudio.TestPlatform.TestHost;
+using ShoppingCartEngine.Controller;
+using ShoppingCartEngine.Models;
 using Xunit;
 
 namespace ShoppingCartEngineTests
 {
     public class ShoppingCartEngineUnitTests
     {
-        [Fact]
-        public void ShouldGeneratePackingSlipForPhysicalProducts()
+        [Theory]
+        [InlineData(ProductTypes.BOOK, "Generated Packing Slip.")]
+        [InlineData(ProductTypes.OTHER, "Generated Packing Slip.")]
+        public void ShouldGeneratePackingSlipForPhysicalProducts(ProductTypes type, string expectedResult)
         {
-            var result = Program.Main(new string[] { "physicalproduct", "Generated packing slip" })
+            // Setup
+            var sut = new PaymentController();
+
+            // Exercise
+            var result = sut.HandlePayment(type);
+
+            // Verify
+            result.ActionMessages.Should().Contain(expectedResult);
         }
     }
 }
