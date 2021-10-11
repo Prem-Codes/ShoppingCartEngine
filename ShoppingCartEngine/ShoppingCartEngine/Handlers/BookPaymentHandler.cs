@@ -10,9 +10,11 @@ namespace ShoppingCartEngine.Handlers
         public BookPaymentHandler(string itemName)
         {
             ProductName = itemName;
-            ActionMessages = new List<string> {$"Created a duplicate slip for royalty department for {itemName}"};
+            ProductType = ProductTypes.BOOK;
+            ActionMessages = new List<string>();
             base.GetPackagingSlip();
             base.SentCommissionToAgent();
+            base.CreateDuplicateSlip(itemName);
         }
     }
 }

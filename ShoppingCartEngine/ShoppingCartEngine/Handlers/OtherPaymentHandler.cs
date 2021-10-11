@@ -9,6 +9,8 @@ namespace ShoppingCartEngine.Handlers
     {
         public OtherPaymentHandler()
         {
+            ProductType = ProductTypes.OTHER;
+            ActionMessages = new List<string>();
             base.GetPackagingSlip();
             base.SentCommissionToAgent();
         }

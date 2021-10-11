@@ -9,20 +9,11 @@ namespace ShoppingCartEngine.Handlers
     {
         public VideoPaymentHandler(string videoName)
         {
-            base.GetPackagingSlip();
-            ActionMessages = AddFreeVideo(videoName);
             ProductName = videoName;
-        }
-
-        public List<string> AddFreeVideo(string videoName)
-        {
+            ProductType = ProductTypes.VIDEO;
             ActionMessages = new List<string>();
-            if (ProductName.ToLower().Contains("learning to ski"))
-            {
-                ActionMessages.Add($"Hurray. You get a Free Video with your purchase of {videoName}");
-            }
-
-            return ActionMessages;
+            base.GetPackagingSlip();
+            base.AddFreeVideo(videoName);
         }
     }
 }

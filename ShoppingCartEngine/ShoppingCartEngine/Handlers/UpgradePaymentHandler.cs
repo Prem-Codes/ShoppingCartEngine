@@ -9,8 +9,10 @@ namespace ShoppingCartEngine.Handlers
     {
         public UpgradePaymentHandler()
         {
-            ActionMessages = new List<string> { "Upgrade to your membership is done" };
+            ProductType = ProductTypes.UPGRADE;
+            ActionMessages = new List<string>();
             base.GetPackagingSlip();
+            base.ApplyUpgrade();
             base.DropMailToUser();
         }
     }

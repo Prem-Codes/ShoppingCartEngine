@@ -9,8 +9,10 @@ namespace ShoppingCartEngine.Handlers
     {
         public MembershipPaymentHandler()
         {
-            ActionMessages = new List<string> { "Your membership is activated" };
+            ProductType = ProductTypes.MEMBERSHIP;
+            base.ActionMessages = new List<string>();
             base.GetPackagingSlip();
+            base.ActivateMembership();
             base.DropMailToUser();
         }
     }
