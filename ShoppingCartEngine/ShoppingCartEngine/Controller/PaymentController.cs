@@ -7,19 +7,19 @@ namespace ShoppingCartEngine.Controller
 {
     public class PaymentController
     {
-        public Product HandlePayment(ProductTypes type)
+        public Product HandlePayment(ProductTypes type, string itemName="")
         {
             if (type == ProductTypes.BOOK || type == ProductTypes.OTHER)
             {
-                return HandlePaymentforPhysicalProduct(type);
+                return HandlePaymentforPhysicalProduct(type, itemName);
             }
             else
             {
-                return new Product();
+                return HandlePaymentforNonPhysicalProduct(type, itemName);
             }
         }
 
-        private Product HandlePaymentforPhysicalProduct(ProductTypes type)
+        private Product HandlePaymentforPhysicalProduct(ProductTypes type, string itemName)
         {
             Product product = new Product();
             product.ActionMessages = new List<string>();
@@ -32,10 +32,31 @@ namespace ShoppingCartEngine.Controller
 
             if (type == ProductTypes.BOOK)
             {
+                product.ProductName = string.IsNullOrEmpty(itemName) ? itemName : String.Empty;
                 product.ActionMessages.Add("Created a duplicate slip for the royalty department.");
                 Console.WriteLine("Created a duplicate slip for the royalty department.");
             }
-            product.ProductName = type.ToString();
+
+            product.ProductType = type;
+            return product;
+        }
+
+        private Product HandlePaymentforNonPhysicalProduct(ProductTypes type, string itemName)
+        {
+            Product product = new Product();
+            product.ActionMessages = new List<string>();
+
+            if (type == ProductTypes.VIDEO)
+            {
+                if (itemName.ToLower().Contains("learning to ski."))
+                {
+                    product.ProductName = string.IsNullOrEmpty(itemName) ? itemName : String.Empty;
+                    product.ActionMessages.Add("You get a free First Aid Video.");
+                    Console.WriteLine("You get a free First Aid Video.");
+                }
+            }
+
+            product.ProductType = type;
             return product;
         }
     }

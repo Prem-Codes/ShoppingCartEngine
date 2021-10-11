@@ -54,14 +54,14 @@ namespace ShoppingCartEngineTests
         }
 
         [Theory]
-        [InlineData(ProductTypes.VIDEO, "You get a free First Aid Video.")]
-        public void Should_Add_First_Aid_Video_For_Learning_to_Ski_VideoPurchased(ProductTypes type, string expectedResult)
+        [InlineData(ProductTypes.VIDEO,"Learning to Ski.", "You get a free First Aid Video.")]
+        public void Should_Add_First_Aid_Video_For_Learning_to_Ski_VideoPurchased(ProductTypes type,string itemName, string expectedResult)
         {
             // Setup
             var sut = new PaymentController();
 
             // Exercise
-            var result = sut.HandlePayment(type);
+            var result = sut.HandlePayment(type, itemName);
 
             // Verify
             result.ActionMessages.Should().ContainEquivalentOf(expectedResult);
