@@ -66,5 +66,19 @@ namespace ShoppingCartEngineTests
             // Verify
             result.ActionMessages.Should().ContainEquivalentOf(expectedResult);
         }
+
+        [Theory]
+        [InlineData(ProductTypes.MEMBERSHIP, "Membership Activated.")]
+        public void Should_Activate_Membership_For_Payment_For_Membership(ProductTypes type, string expectedResult)
+        {
+            // Setup
+            var sut = new PaymentController();
+
+            // Exercise
+            var result = sut.HandlePayment(type);
+
+            // Verify
+            result.ActionMessages.Should().ContainEquivalentOf(expectedResult);
+        }
     }
 }
