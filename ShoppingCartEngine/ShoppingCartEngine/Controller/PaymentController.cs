@@ -56,6 +56,12 @@ namespace ShoppingCartEngine.Controller
                 }
             }
 
+            if (type == ProductTypes.MEMBERSHIP)
+            {
+                product.ActionMessages.Add("Membership Activated.");
+                Console.WriteLine("Membership Activated.");
+            }
+
             product.ProductType = type;
             return product;
         }
