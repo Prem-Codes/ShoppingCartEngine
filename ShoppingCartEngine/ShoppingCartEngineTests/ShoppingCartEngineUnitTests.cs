@@ -69,7 +69,36 @@ namespace ShoppingCartEngineTests
 
         [Theory]
         [InlineData(ProductTypes.MEMBERSHIP, "Membership Activated.")]
-        public void Should_Activate_Membership_For_Payment_For_Membership(ProductTypes type, string expectedResult)
+        public void Should_Activate_Membership_For_Payment_For_MembershipActivation(ProductTypes type, string expectedResult)
+        {
+            // Setup
+            var sut = new PaymentController();
+
+            // Exercise
+            var result = sut.HandlePayment(type);
+
+            // Verify
+            result.ActionMessages.Should().ContainEquivalentOf(expectedResult);
+        }
+
+        [Theory]
+        [InlineData(ProductTypes.UPGRADE, "Upgrade to the membership applied.")]
+        public void Should_Upgrade_Membership_For_Payment_For_MembershipUpgrade(ProductTypes type, string expectedResult)
+        {
+            // Setup
+            var sut = new PaymentController();
+
+            // Exercise
+            var result = sut.HandlePayment(type);
+
+            // Verify
+            result.ActionMessages.Should().ContainEquivalentOf(expectedResult);
+        }
+
+        [Theory]
+        [InlineData(ProductTypes.UPGRADE, "email regarding the upgrade sent to user.")]
+        [InlineData(ProductTypes.MEMBERSHIP, "email regarding the membership sent to user.")]
+        public void Should_Inform_Users_About_Membership_Activation_Or_Upgrade(ProductTypes type, string expectedResult)
         {
             // Setup
             var sut = new PaymentController();
