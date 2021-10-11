@@ -28,7 +28,8 @@ namespace ShoppingCartEngine
 
             var output = paymentController.HandlePayment(type, itemName);
 
-            Console.WriteLine(output);
+            Console.WriteLine("Product Ordered : {0} Actions Taken : {1}", output.ProductType, string.Join(' ', output.ActionMessages));
+            Console.ReadLine();
         }
     }
 }
