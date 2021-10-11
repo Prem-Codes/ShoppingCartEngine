@@ -21,10 +21,8 @@ namespace ShoppingCartEngine.Controller
 
         private Product HandlePaymentforPhysicalProduct(ProductTypes type, string itemName)
         {
-            Product product = new Product();
-            product.ActionMessages = new List<string>();
+            Product product = new Product {ActionMessages = new List<string> {"Generated Packing Slip."}};
 
-            product.ActionMessages.Add("Generated Packing Slip.");
             Console.WriteLine("Generated Packing Slip.");
             
             product.ActionMessages.Add("Commission Payment to the Agent.");
@@ -43,8 +41,7 @@ namespace ShoppingCartEngine.Controller
 
         private Product HandlePaymentforNonPhysicalProduct(ProductTypes type, string itemName)
         {
-            Product product = new Product();
-            product.ActionMessages = new List<string>();
+            Product product = new Product {ActionMessages = new List<string>()};
 
             if (type == ProductTypes.VIDEO)
             {
