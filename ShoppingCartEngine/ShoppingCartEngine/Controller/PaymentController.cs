@@ -26,11 +26,12 @@ namespace ShoppingCartEngine.Controller
 
             product.ActionMessages.Add("Generated Packing Slip.");
             Console.WriteLine("Generated Packing Slip.");
+            
+            product.ActionMessages.Add("Commission Payment to the Agent.");
+            Console.WriteLine("Commission Payment to the Agent.");
 
             if (type == ProductTypes.BOOK)
             {
-                product.ActionMessages.Add("Commission Payment to the Agent.");
-                Console.WriteLine("Commission Payment to the Agent.");
                 product.ActionMessages.Add("Created a duplicate slip for the royalty department.");
                 Console.WriteLine("Created a duplicate slip for the royalty department.");
             }
