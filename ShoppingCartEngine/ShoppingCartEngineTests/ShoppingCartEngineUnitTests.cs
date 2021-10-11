@@ -21,7 +21,21 @@ namespace ShoppingCartEngineTests
             var result = sut.HandlePayment(type);
 
             // Verify
-            result.ActionMessages.Should().Contain(expectedResult);
+            result.ActionMessages.Should().ContainEquivalentOf(expectedResult);
+        }
+
+        [Theory]
+        [InlineData(ProductTypes.BOOK, "Commission Payment to the Agent.")]
+        public void ShouldPayCommissionToAgent(ProductTypes type, string expectedResult)
+        {
+            // Setup
+            var sut = new PaymentController();
+
+            // Exercise
+            var result = sut.HandlePayment(type);
+
+            // Verify
+            result.ActionMessages.Should().ContainEquivalentOf(expectedResult);
         }
     }
 }
