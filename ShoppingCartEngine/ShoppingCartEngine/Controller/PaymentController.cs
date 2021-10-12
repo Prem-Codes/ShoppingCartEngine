@@ -1,11 +1,12 @@
-﻿using ShoppingCartEngine.Handlers;
+﻿using System;
+using ShoppingCartEngine.Handlers;
 using ShoppingCartEngine.Models;
 
 namespace ShoppingCartEngine.Controller
 {
     public class PaymentController
     {
-        public Product HandlePayment(ProductTypes type, string itemName="")
+        public Product HandlePayment(ProductTypes type, string userInput="")
         {
             Product product;
 
@@ -13,27 +14,33 @@ namespace ShoppingCartEngine.Controller
             {
                 case ProductTypes.BOOK:
                 {
-                    product = new BookPaymentHandler(itemName);
+                    product = new BookPaymentHandler(userInput);
                     break;
                 }
                 case ProductTypes.MEMBERSHIP:
                 {
-                    product = new MembershipPaymentHandler();
+                    product = new MembershipPaymentHandler(userInput);
                     break;
                 }
                 case ProductTypes.UPGRADE:
                 {
-                    product = new UpgradePaymentHandler();
+                    product = new UpgradePaymentHandler(userInput);
                     break;
                 }
                 case ProductTypes.VIDEO:
                 {
-                    product = new VideoPaymentHandler(itemName);
+                    product = new VideoPaymentHandler(userInput);
+                    break;
+                }
+                case ProductTypes.OTHER:
+                {
+                    product = new OtherPaymentHandler();
                     break;
                 }
                 default:
                 {
-                    product = new OtherPaymentHandler();
+                    product = null;
+                    Console.WriteLine("Your Cart is empty");
                     break;
                 }
             }

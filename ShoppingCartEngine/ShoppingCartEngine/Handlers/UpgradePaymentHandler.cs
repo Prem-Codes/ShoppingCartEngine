@@ -5,13 +5,13 @@ namespace ShoppingCartEngine.Handlers
 {
     public class UpgradePaymentHandler : OtherProducts
     {
-        public UpgradePaymentHandler()
+        public UpgradePaymentHandler(string emailId)
         {
             ProductType = ProductTypes.UPGRADE;
             ActionMessages = new List<string>();
             base.GetPackagingSlip();
             ApplyUpgrade();
-            DropMailToUser();
+            DropMailToUser(emailId, ProductType);
         }
     }
 }

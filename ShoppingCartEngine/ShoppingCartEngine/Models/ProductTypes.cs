@@ -2,6 +2,7 @@
 {
     public enum ProductTypes
     {
+        NONE,
         VIDEO,
         MEMBERSHIP,
         UPGRADE,

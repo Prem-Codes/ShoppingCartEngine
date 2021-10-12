@@ -9,9 +9,9 @@ namespace ShoppingCartEngine.Models
             ActionMessages.Add("Created packaging slip for shipping");
         }
 
-        public void DropMailToUser()
+        public void DropMailToUser(string emailId, ProductTypes type)
         {
-            ActionMessages.Add("Mail Sent");
+            ActionMessages.Add($"Mail Sent to {emailId} for {type.ToString().ToLower()}");
         }
 
         public void ActivateMembership()
@@ -28,7 +28,7 @@ namespace ShoppingCartEngine.Models
         {
             if (videoName.ToLower().Contains("learning to ski"))
             {
-                ActionMessages.Add($"Hurray. You get a Free Video with your purchase of {videoName}");
+                ActionMessages.Add($"You get a Free First Aid Video with your purchase of {videoName} video");
             }
         }
     }

@@ -16,7 +16,7 @@ namespace ShoppingCartEngine.Models
 
         public void CreateDuplicateSlip(string itemName)
         {
-            ActionMessages.Add($"Created a duplicate slip for royalty department for {itemName}");
+            ActionMessages.Add($"Created a duplicate slip for royalty department for {itemName} author");
         }
     }
 }

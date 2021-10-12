@@ -5,13 +5,13 @@ namespace ShoppingCartEngine.Handlers
 {
     public class MembershipPaymentHandler : OtherProducts
     {
-        public MembershipPaymentHandler()
+        public MembershipPaymentHandler(string emailId)
         {
             ProductType = ProductTypes.MEMBERSHIP;
             ActionMessages = new List<string>();
             base.GetPackagingSlip();
             ActivateMembership();
-            DropMailToUser();
+            DropMailToUser(emailId, ProductType);
         }
     }
 }
