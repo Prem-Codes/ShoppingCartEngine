@@ -9,26 +9,43 @@ namespace ShoppingCartEngine
         static void Main(string[] args)
         {
             var paymentController = new PaymentController();
-            string itemName = "";
+            ProductTypes type = ProductTypes.NONE;
+            string userInput = "";
 
-            foreach (var value in Enum.GetValues(typeof(ProductTypes)))
+            foreach (ProductTypes value in Enum.GetValues(typeof(ProductTypes)))
             {
-                Console.WriteLine("{0,3}   {1}",
-                    (int)value, ((ProductTypes)value));
+                if (value != type)
+                {
+                    Console.WriteLine("{0,3}   {1}",
+                        (int)value, ((ProductTypes)value));
+                }
             }
 
             Console.WriteLine("Enter the Name of the product you want to purchase from the above list");
-            var userInput = Console.ReadLine();
-            ProductTypes type = Enum.Parse<ProductTypes>(userInput.ToUpper());
+
+            var userSelection = Console.ReadLine();
+            if (userSelection != null) type = Enum.Parse<ProductTypes>(userSelection.ToUpper());
+
             if (type == ProductTypes.VIDEO)
             {
                 Console.WriteLine("Enter Video Name: ");
-                itemName = Console.ReadLine();
+                userInput = Console.ReadLine();
+            }
+            else if (type == ProductTypes.MEMBERSHIP || type == ProductTypes.UPGRADE)
+            {
+                Console.WriteLine("Enter your email id: ");
+                userInput = Console.ReadLine();
+            }
+            else if (type == ProductTypes.BOOK)
+            {
+                Console.WriteLine("Enter the book name: ");
+                userInput = Console.ReadLine();
             }
 
-            var output = paymentController.HandlePayment(type, itemName);
 
-            Console.WriteLine("Product Ordered : {0} Actions Taken : {1}", output.ProductType, string.Join(' ', output.ActionMessages));
+            var output = paymentController.HandlePayment(type, userInput);
+
+            Console.WriteLine("Product Ordered : {0}\nActions Taken : {1}\n", output.ProductType, string.Join(Environment.NewLine, output.ActionMessages));
             Console.ReadLine();
         }
     }

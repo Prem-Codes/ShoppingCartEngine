@@ -39,8 +39,7 @@ namespace ShoppingCartEngine.Controller
                 }
                 default:
                 {
-                    product = null;
-                    Console.WriteLine("Your Cart is empty");
+                    product = new NoPaymentHandler();
                     break;
                 }
             }
