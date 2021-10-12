@@ -1,5 +1,4 @@
-﻿using System;
-using ShoppingCartEngine.Handlers;
+﻿using ShoppingCartEngine.Handlers;
 using ShoppingCartEngine.Models;
 
 namespace ShoppingCartEngine.Controller

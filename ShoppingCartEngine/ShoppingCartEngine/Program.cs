@@ -17,7 +17,7 @@ namespace ShoppingCartEngine
                 if (value != type)
                 {
                     Console.WriteLine("{0,3}   {1}",
-                        (int)value, ((ProductTypes)value));
+                        (int)value, value);
                 }
             }
 
