@@ -10,6 +10,5 @@ namespace ShoppingCartEngine.Models
         public List<string> ActionMessages { get; set; }
 
         public abstract void GetPackagingSlip();
-
     }
 }

@@ -3,7 +3,7 @@ using ShoppingCartEngine.Models;
 
 namespace ShoppingCartEngine.Handlers
 {
-    public class NoPaymentHandler: OtherProducts
+    public class NoPaymentHandler : OtherProducts
     {
         public NoPaymentHandler()
         {

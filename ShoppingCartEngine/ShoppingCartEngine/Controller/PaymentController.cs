@@ -5,7 +5,7 @@ namespace ShoppingCartEngine.Controller
 {
     public class PaymentController
     {
-        public Product HandlePayment(ProductTypes type, string userInput="")
+        public Product HandlePayment(ProductTypes type, string userInput = "")
         {
             Product product;
 
